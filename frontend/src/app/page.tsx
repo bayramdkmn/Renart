@@ -7,6 +7,13 @@ import { useState, useEffect } from "react";
 import { Product } from "../types/product";
 import ProductSlider from "../components/ProductSlider";
 
+interface FilterValues {
+  minPrice?: number;
+  maxPrice?: number;
+  minPopularity?: number;
+  maxPopularity?: number;
+}
+
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +23,7 @@ export default function Home() {
     fetchProducts();
   }, []);
 
-  const fetchProducts = async (filters: any = {}) => {
+  const fetchProducts = async (filters: FilterValues = {}) => {
     try {
       setLoading(true);
 
@@ -48,7 +55,7 @@ export default function Home() {
     }
   };
 
-  const handleFilter = (filters: any) => {
+  const handleFilter = (filters: FilterValues) => {
     fetchProducts(filters);
   };
 

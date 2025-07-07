@@ -1,12 +1,14 @@
 import { useState } from "react";
 
+interface FilterValues {
+  minPrice?: number;
+  maxPrice?: number;
+  minPopularity?: number;
+  maxPopularity?: number;
+}
+
 interface FilterProps {
-  onFilter: (filters: {
-    minPrice?: number;
-    maxPrice?: number;
-    minPopularity?: number;
-    maxPopularity?: number;
-  }) => void;
+  onFilter: (filters: FilterValues) => void;
   onReset: () => void;
 }
 
@@ -16,7 +18,7 @@ export default function ProductFilter({ onFilter, onReset }: FilterProps) {
   const [showFilters, setShowFilters] = useState(false);
 
   const handleApplyFilters = () => {
-    const filters: any = {};
+    const filters: FilterValues = {};
 
     if (priceRange.min) filters.minPrice = parseFloat(priceRange.min);
     if (priceRange.max) filters.maxPrice = parseFloat(priceRange.max);
