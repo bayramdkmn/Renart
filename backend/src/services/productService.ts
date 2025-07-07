@@ -37,11 +37,11 @@ export class ProductService {
 
     return this.products.map(product => {
       const price = (product.popularityScore + 1) * product.weight * goldPricePerGram;
-      const popularityScoreOutOf5 = Math.round(product.popularityScore * 5 * 10) / 10; // 1 ondalık basamak
+      const popularityScoreOutOf5 = Math.round(product.popularityScore * 5 * 10) / 10; 
 
       return {
         ...product,
-        price: Math.round(price * 100) / 100, // 2 ondalık basamak
+        price: Math.round(price * 100) / 100, 
         popularityScoreOutOf5
       };
     });

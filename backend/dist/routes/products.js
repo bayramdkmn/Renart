@@ -13,7 +13,6 @@ const express_1 = require("express");
 const productService_1 = require("../services/productService");
 const router = (0, express_1.Router)();
 const productService = productService_1.ProductService.getInstance();
-// Tüm ürünleri getir
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = yield productService.getProductsWithPrices();
@@ -24,7 +23,6 @@ router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(500).json({ error: 'Ürünler getirilemedi' });
     }
 }));
-// Filtreleme ile ürünleri getir
 router.get('/filter', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { minPrice, maxPrice, minPopularity, maxPopularity } = req.query;

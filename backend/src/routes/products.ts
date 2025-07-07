@@ -4,7 +4,6 @@ import { ProductService } from '../services/productService';
 const router = Router();
 const productService = ProductService.getInstance();
 
-// Tüm ürünleri getir
 router.get('/', async (req: Request, res: Response) => {
   try {
     const products = await productService.getProductsWithPrices();
@@ -15,7 +14,6 @@ router.get('/', async (req: Request, res: Response) => {
   }
 });
 
-// Filtreleme ile ürünleri getir
 router.get('/filter', async (req: Request, res: Response) => {
   try {
     const { minPrice, maxPrice, minPopularity, maxPopularity } = req.query;

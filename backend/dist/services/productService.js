@@ -30,7 +30,7 @@ class ProductService {
     }
     loadProducts() {
         try {
-            const productsPath = path_1.default.join(__dirname, '../../../../products.json');
+            const productsPath = path_1.default.join(__dirname, '../../products.json');
             const productsData = fs_1.default.readFileSync(productsPath, 'utf8');
             this.products = JSON.parse(productsData);
         }
@@ -45,9 +45,8 @@ class ProductService {
             const goldPricePerGram = this.goldPriceService.convertOzToGram(goldPricePerOz);
             return this.products.map(product => {
                 const price = (product.popularityScore + 1) * product.weight * goldPricePerGram;
-                const popularityScoreOutOf5 = Math.round(product.popularityScore * 5 * 10) / 10; // 1 ondalık basamak
-                return Object.assign(Object.assign({}, product), { price: Math.round(price * 100) / 100, // 2 ondalık basamak
-                    popularityScoreOutOf5 });
+                const popularityScoreOutOf5 = Math.round(product.popularityScore * 5 * 10) / 10;
+                return Object.assign(Object.assign({}, product), { price: Math.round(price * 100) / 100, popularityScoreOutOf5 });
             });
         });
     }
