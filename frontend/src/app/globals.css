@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@font-face {
+  font-family: 'Avenir-Book';
+  src: url('/Fonts/avenir/Avenir-Book.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('/Fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('/Fonts/Montserrat/Montserrat-Medium.otf') format('opentype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('/Fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #fff;
+  min-height: 100vh;
+}
+
+.font-avenir-book {
+  font-family: 'Avenir-Book', sans-serif !important;
+}
+
+.font-montserrat-regular {
+  font-family: 'Montserrat-Regular', sans-serif !important;
+}
+
+.font-montserrat-medium {
+  font-family: 'Montserrat-Medium', sans-serif !important;
+}
+
+.rounded-image {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+.rounded-image img {
+  border-radius: 16px !important;
+}
