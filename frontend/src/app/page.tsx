@@ -18,7 +18,9 @@ export default function Home() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://renart-backend.vercel.app");
+      const response = await fetch(
+        "https://renart-backend.vercel.app/api/products"
+      );
       if (!response.ok) {
         throw new Error("Ürünler yüklenemedi");
       }
